@@ -1,7 +1,7 @@
 {
    "name":"Delta-BugHunter",
    "short_name":"DeltaBH",
-   "author":"Muaz Khan, Dhaby Xiloj",
+   "author":"Dhaby Xiloj, Muaz Khan",
    "version":"0.1",
    "manifest_version":2,
    "minimum_chrome_version":"49",
@@ -40,7 +40,7 @@
     ],
    "browser_action":{
       "default_icon":"images/main-icon.png",
-      "default_title":"Record Your Screen, Tab or Camera",
+      "default_title":"Record Your Screen, Tab and create Issue",
       "default_popup": "dropdown.html"
    },
    "icons":{
