@@ -1,0 +1,14 @@
+{
+  "full_screen" : {
+    "message" : "Pantalla",
+    "description" : "Menu para captura de pantalla"
+  },
+  "microphone_screen" : {
+    "message" : "Pantalla + Micrófono",
+    "description" : "Menú de captura de pantalla y micrófono"
+  },
+  "selected_tab" : {
+    "message" : "Pestaña activa",
+    "description" : "Captura solamente la pantalla activa"
+  }
+}

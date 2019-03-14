@@ -1,0 +1,14 @@
+{
+  "full_screen" : {
+    "message" : "Screen (without audio)",
+    "description" : "Capture screen without audio menu"
+  },
+  "microphone_screen" : {
+    "message" : "Screen + Microphone",
+    "description" : "Capture screen and microphone"
+  },
+  "selected_tab" : {
+    "message" : "Chrome Tab",
+    "description" : "Captre only a tab"
+  }
+}

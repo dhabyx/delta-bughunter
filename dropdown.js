@@ -1,5 +1,5 @@
 ﻿var runtimePort = chrome.runtime.connect({
-    name: location.href.replace(/\/|:|#|\?|\$|\^|%|\.|`|~|!|\+|@|\[|\||]|\|*. /g, '').split('\n').join('').split('\r').join('')
+    name: location.href.replace(/\/|:|#|\?|\$|\^|%|\.|~|!|\+|@|\[|\||]|\|*. /g, '').split('\n').join('').split('\r').join('')
 });
 
 runtimePort.onMessage.addListener(function(message) {
@@ -52,6 +52,8 @@ document.getElementById('stop-recording').onclick = function() {
     });
 };
 
+
+$('#full-screen').append(chrome.i18n.getMessage('full_screen'));
 document.getElementById('full-screen').onclick = function() {
     chrome.storage.sync.set({
         enableTabCaptureAPI: 'false',
@@ -71,44 +73,7 @@ document.getElementById('full-screen').onclick = function() {
     });
 };
 
-document.getElementById('full-screen-audio').onclick = function() {
-    chrome.storage.sync.set({
-        enableTabCaptureAPI: 'false',
-        enableTabCaptureAPIAudioOnly: 'false',
-        enableMicrophone: 'false',
-        enableCamera: 'false',
-        enableScreen: 'true',
-        isRecording: 'true',
-        enableSpeakers: 'true'
-    }, function() {
-        runtimePort.postMessage({
-            messageFromContentScript1234: true,
-            startRecording: true,
-            dropdown: true
-        });
-        window.close();
-    });
-};
-
-document.getElementById('full-screen-microphone-audio').onclick = function() {
-    chrome.storage.sync.set({
-        enableTabCaptureAPI: 'false',
-        enableTabCaptureAPIAudioOnly: 'false',
-        enableMicrophone: 'true',
-        enableCamera: 'false',
-        enableScreen: 'true',
-        isRecording: 'true',
-        enableSpeakers: 'true'
-    }, function() {
-        runtimePort.postMessage({
-            messageFromContentScript1234: true,
-            startRecording: true,
-            dropdown: true
-        });
-        window.close();
-    });
-};
-
+$('#selected-tab').append(chrome.i18n.getMessage('selected_tab'));
 document.getElementById('selected-tab').onclick = function() {
     chrome.storage.sync.set({
         enableTabCaptureAPI: 'true',
@@ -128,25 +93,7 @@ document.getElementById('selected-tab').onclick = function() {
     });
 };
 
-document.getElementById('selected-tab-audio-only').onclick = function() {
-    chrome.storage.sync.set({
-        enableTabCaptureAPI: 'true',
-        enableTabCaptureAPIAudioOnly: 'true',
-        enableMicrophone: 'false',
-        enableCamera: 'false',
-        enableScreen: 'false',
-        isRecording: 'true',
-        enableSpeakers: 'false'
-    }, function() {
-        runtimePort.postMessage({
-            messageFromContentScript1234: true,
-            startRecording: true,
-            dropdown: true
-        });
-        window.close();
-    });
-};
-
+$('#microphone-screen').append(chrome.i18n.getMessage('microphone_screen'));
 document.getElementById('microphone-screen').onclick = function() {
     chrome.storage.sync.set({
         enableTabCaptureAPI: 'false',
@@ -156,101 +103,6 @@ document.getElementById('microphone-screen').onclick = function() {
         enableScreen: 'true',
         isRecording: 'true',
         enableSpeakers: 'false'
-    }, function() {
-        runtimePort.postMessage({
-            messageFromContentScript1234: true,
-            startRecording: true,
-            dropdown: true
-        });
-        window.close();
-    });
-};
-
-document.getElementById('microphone-screen-camera').onclick = function() {
-    chrome.storage.sync.set({
-        enableTabCaptureAPI: 'false',
-        enableTabCaptureAPIAudioOnly: 'false',
-        enableMicrophone: 'true',
-        enableCamera: 'true',
-        enableScreen: 'true',
-        isRecording: 'true',
-        enableSpeakers: 'false'
-    }, function() {
-        runtimePort.postMessage({
-            messageFromContentScript1234: true,
-            startRecording: true,
-            dropdown: true
-        });
-        window.close();
-    });
-};
-
-document.getElementById('microphone-webcam').onclick = function() {
-    chrome.storage.sync.set({
-        enableTabCaptureAPI: 'false',
-        enableTabCaptureAPIAudioOnly: 'false',
-        enableMicrophone: 'true',
-        enableCamera: 'true',
-        enableScreen: 'false',
-        isRecording: 'true',
-        enableSpeakers: 'false'
-    }, function() {
-        runtimePort.postMessage({
-            messageFromContentScript1234: true,
-            startRecording: true,
-            dropdown: true
-        });
-        window.close();
-    });
-};
-
-document.getElementById('microphone-speakers').onclick = function() {
-    chrome.storage.sync.set({
-        enableTabCaptureAPI: 'false',
-        enableTabCaptureAPIAudioOnly: 'false',
-        enableMicrophone: 'true',
-        enableCamera: 'false',
-        enableScreen: 'false',
-        isRecording: 'true',
-        enableSpeakers: 'true'
-    }, function() {
-        runtimePort.postMessage({
-            messageFromContentScript1234: true,
-            startRecording: true,
-            dropdown: true
-        });
-        window.close();
-    });
-};
-
-document.getElementById('microphone-only').onclick = function() {
-    chrome.storage.sync.set({
-        enableTabCaptureAPI: 'false',
-        enableTabCaptureAPIAudioOnly: 'false',
-        enableMicrophone: 'true',
-        enableCamera: 'false',
-        enableScreen: 'false',
-        isRecording: 'true',
-        enableSpeakers: 'false'
-    }, function() {
-        runtimePort.postMessage({
-            messageFromContentScript1234: true,
-            startRecording: true,
-            dropdown: true
-        });
-        window.close();
-    });
-};
-
-document.getElementById('speakers-only').onclick = function() {
-    chrome.storage.sync.set({
-        enableTabCaptureAPI: 'false',
-        enableTabCaptureAPIAudioOnly: 'false',
-        enableMicrophone: 'false',
-        enableCamera: 'false',
-        enableScreen: 'false',
-        isRecording: 'true',
-        enableSpeakers: 'true'
     }, function() {
         runtimePort.postMessage({
             messageFromContentScript1234: true,

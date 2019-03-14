@@ -32,7 +32,8 @@
           "<all_urls>"
         ],
         "js":[
-            "background/background.contentScript.js"
+            "background/background.contentScript.js",
+            "libs/jquery-3.3.1.min.js"
         ],
         "all_frames": true,
         "run_at": "document_start"
@@ -75,5 +76,6 @@
       "page":"options.html",
       "chrome_style":false,
       "open_in_tab": true
-   }
+   },
+   "default_locale": "en"
 }
