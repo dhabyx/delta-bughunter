@@ -117,3 +117,8 @@ document.getElementById('btn-options').onclick = function(e) {
     e.preventDefault();
     location.href = this.href;
 };
+
+$('#btn-redmine-opt').click(function(e) {
+  e.preventDefault();
+  location.href = this.href;
+});

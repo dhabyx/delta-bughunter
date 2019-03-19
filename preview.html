@@ -3,6 +3,7 @@
 <title>Delta BugHunter</title>
 <link rel="manifest" href="manifest.json">
 <link rel="stylesheet" type="text/css" href="styles/preview.css" />
+<script type="text/javascript" src="libs/jquery-3.3.1.min.js"></script>
 </head>
 <body>
 <header>
@@ -22,6 +23,7 @@
     <span id="browser-cache" style="font-size: 17px"></span>
 </header>
 <div id="btn-upload-dropdown">
+  <div id="btn-redmine-upload">Upload Issue to <span style="color: red;">Redmine</span></div>
   <div id="btn-php-upload">Upload to <span style="color: red;">Private Server</span></div>
   <div id="btn-youtube-upload">Upload to <span style="color: red;">YouTube</span></div>
 </div>
@@ -36,6 +38,7 @@
 <script src="background/background.common.js"></script>
 <script src="preview/preview.js"></script>
 <script src="preview/preview.php.upload.js"></script>
+<script src="preview/preview.redmine.upload.js"></script>
 <script src="preview/preview.youtube.upload.js"></script>
 
 <script src="https://apis.google.com/js/client:plusone.js"></script>

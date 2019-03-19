@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Redmine options</title>
+    <link rel="stylesheet" type="text/css" href="/styles/redmineopt.css" />
+    <script type="text/javascript" src="../libs/jquery-3.3.1.min.js"></script>
+  </head>
+  <body>
+    <article>
+      <h3>Delta BugHunter</h3>
+      <p>Redmine Server:
+        <input type="text" name="redmine_server" id="redmine_server" style="width: 100%"/>
+      </p>
+      <p>Redmine API Token
+        <input type="text" name="redmine_token" id="redmine_token" style="width: 100%" />
+      </p>
+      <div id="status"></div>
+      <button id="save" style="float: right; margin-bottom: 15px;">Save</button>
+    </article>
+    <script src="redmineopt.js"></script>
+  </body>
+</html>
