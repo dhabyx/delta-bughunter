@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
 <title>Delta BugHunter</title>
@@ -7,8 +8,9 @@
 </head>
 <body>
 <header>
-    <img id="btn-recordings-list" src="images/list-icon.png" title="List Of Recordings">
-    <img id="btn-upload" src="images/upload-icon.png" title="Upload">
+    <img id="reload_icon" src="images/reload.png" alt="Loading..." title="Loading ..."/>
+    <img id="btn-recordings-list" src="images/list-icon.png" title="List Of Recordings" alt="list of recordings" />
+    <img id="btn-upload" src="images/upload-icon.png" title="Upload" alt="upload" />
 
     <p style="position: absolute;right: 10%;">
       <span style="font-size: .6em; margin-left: 20px;" id="file-size" title="Size"></span>
@@ -29,10 +31,46 @@
 </div>
 
 <div id="btn-recordings-list-dropdown"></div>
+<div id="data-objects">
 
-<section style="text-align: center;">
-  <video controls disable-contextmenu cf-video-load="file"></video>
-</section>
+<div id="video-area">
+  <section style="text-align: center;">
+    <video controls disable-contextmenu cf-video-load="file"></video>
+  </section>
+</div>
+<div id="redmine-data">
+  <h2>Project</h2>
+  <select id="projects">
+  </select>
+
+  <h2>Priority</h2>
+  <select id="priorities">
+  </select>
+
+  <h2>Tracker (optional)</h2>
+  <select id="trackers">
+  </select>
+
+  <h2>Category (optional)</h2>
+  <select id="categories">
+  </select>
+
+  <h2>Assign to (optional)</h2>
+  <select id="assignables">
+  </select>
+
+  <h2>Url (optional)</h2>
+  <p><input type="text" id="tab_url" name="tab_url" value=""/></p>
+
+  <!-- <p class="mini" id="tab_url" name="tab_url"></p> -->
+
+  <h2>Subject</h2>
+  <p><input type="text" id="subject" name="subject" /></p>
+
+  <h2>Description</h2>
+  <p><textarea name="description" id="description" cols="40" rows="3"></textarea></p>
+</div>
+</div>
 
 <script src="RecordRTC/DiskStorage.js"></script>
 <script src="background/background.common.js"></script>

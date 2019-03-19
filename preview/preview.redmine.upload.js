@@ -1,8 +1,20 @@
+function rotateLoading(){
+  $("#reload_icon").addClass("spin");
+}
+
+function stopRotateLoading(){
+  $("#reload_icon").removeClass("spin");
+}
+
+
 $("#btn-redmine-upload").click(function(){
   if (!file) {
       fname.innerHTML = 'You did NOT record anything yet.';
       return;
   }
+
+  rotateLoading();
+
   $(this).disabled = true;
   fresolutions.innerHTML = fsize.innerHTML = fduration.innerHTML = browserCache.innerHTML = '';
   $(fname).text('Upload to redmine started...');
@@ -32,12 +44,14 @@ $("#btn-redmine-upload").click(function(){
         data: file,
         processData: false,
         success: function (data, textStatus, xhr) {
+          stopRotateLoading();
           console.log('finalizada la subida');
           console.log(data.token);
           console.log(textStatus);
           console.log(xhr);
         },
         error: function (xhr, textStatus, errorThrown) {
+          stopRotateLoading();
           console.log('error al subir datos');
           console.log(xhr);
           console.log(textStatus);

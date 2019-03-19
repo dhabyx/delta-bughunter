@@ -39,6 +39,18 @@ chrome.storage.sync.get('isRecording', function(obj) {
     }
 });
 
+function saveTabUrl(){
+  chrome.tabs.query({currentWindow: true, active: true}, function(tabs){
+    var last_url = tabs[0].url;
+    chrome.storage.local.set({
+        last_url: last_url
+      }, function() {
+        console.log('{last_url:'+last_url);
+      }
+    );
+  })
+};
+
 document.getElementById('stop-recording').onclick = function() {
     chrome.storage.sync.set({
         isRecording: 'false'
@@ -55,6 +67,7 @@ document.getElementById('stop-recording').onclick = function() {
 
 $('#full-screen').append(chrome.i18n.getMessage('full_screen'));
 document.getElementById('full-screen').onclick = function() {
+    saveTabUrl();
     chrome.storage.sync.set({
         enableTabCaptureAPI: 'false',
         enableTabCaptureAPIAudioOnly: 'false',
@@ -75,6 +88,7 @@ document.getElementById('full-screen').onclick = function() {
 
 $('#selected-tab').append(chrome.i18n.getMessage('selected_tab'));
 document.getElementById('selected-tab').onclick = function() {
+    saveTabUrl();
     chrome.storage.sync.set({
         enableTabCaptureAPI: 'true',
         enableTabCaptureAPIAudioOnly: 'false',
@@ -95,6 +109,7 @@ document.getElementById('selected-tab').onclick = function() {
 
 $('#microphone-screen').append(chrome.i18n.getMessage('microphone_screen'));
 document.getElementById('microphone-screen').onclick = function() {
+    saveTabUrl();
     chrome.storage.sync.set({
         enableTabCaptureAPI: 'false',
         enableTabCaptureAPIAudioOnly: 'false',
