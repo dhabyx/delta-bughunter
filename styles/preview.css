@@ -14,7 +14,7 @@ video {
 }
 
 header {
-  position: absolute;
+  /* position: absolute; */
   background: white;
   height: 80px;
   font-size: 30px;
@@ -143,4 +143,52 @@ header p {
   to {
     -webkit-transform: rotate(359deg);
   }
+}
+
+.redmine-form h2 {
+  /* color: darkblue;
+  font-size: 0.9em; */
+  -webkit-margin-after: 0px;
+  margin: 5px 0px 1px 0px;
+  color: #6f2525;
+  font-size: 15px;
+  font-family: 'Abel', sans-serif;
+}
+
+.redmine-form select {
+  width: 100%;
+  box-sizing: border-box;
+  border: solid 1px #a9a9a9;
+  transition: box-shadow 0.3s, border 0.3s;
+  padding: 2px 5px;
+  margin: 0px 0px 5px 0px;
+  font-size: 12px;
+  border-radius: 2px;
+  font-family: 'Abel', sans-serif;
+}
+
+.redmine-form textarea {
+  width: 100%;
+  box-sizing: border-box;
+  border: solid 1px #a9a9a9;
+  border-radius: 2px;
+  transition: box-shadow 0.3s, border 0.3s;
+  padding: 2px 5px;
+  margin: 0px 0px 3px 0px;
+  font-size: 12px;
+  line-height: 15px;
+  font-family: 'Abel', sans-serif;
+}
+
+.redmine-form input {
+  width: 100%;
+  box-sizing: border-box;
+  border: solid 1px #a9a9a9;
+  border-radius: 2px;
+  transition: box-shadow 0.3s, border 0.3s;
+  padding: 3px 5px;
+  margin: 0px 0px 4px 0px;
+  font-size: 12px;
+  line-height: 20px;
+  font-family: 'Abel', sans-serif;
 }
