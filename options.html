@@ -1,248 +1,168 @@
-﻿<style>
-* {
-  -webkit-user-select: none;
-  -user-select: none;
-  -webkit-user-drag: none;
-  -user-drag: none;
-}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Delta BugHunter</title>
+    <link rel="stylesheet" type="text/css" href="styles/options.css" />
+    <script type="text/javascript" src="libs/jquery-3.3.1.min.js"></script>
+  </head>
+  <body>
+    <p id="applying-changes">Applying Changes...</p>
 
-@font-face {
-  font-family: 'Custom_Font';
-  src: local('.SFNSText-Light'), 
-       local('.HelveticaNeueDeskInterface-Light'), 
-       local('.LucidaGrandeUI'), 
-       local('Ubuntu Light'), 
-       local('Segoe UI Light'),
-       local('Roboto-Light'), 
-       local('DroidSans'), 
-       local('Tahoma');
-}
+    <article>
+    <h1>Customize Delta BugHunter Extension</h1>
 
-input {
-    -webkit-user-select:initial;
-}
+    <table>
+      <tr>
+        <td><span class="table-titles">Video Options</span></td>
+        <td></td>
+      </tr>
+        <tr>
+            <td>
+                Select a microphone device:
+            </td>
 
-* {
-  margin: 0;
-  padding: 0;
-}
+            <td>
+                <select id="microphone-devices"></select>
+            </td>
+        </tr>
 
-html, body {
-  background-color: white;
-  font-family: Custom_Font!important;
-  font-size: 1em;
-  overflow: hidden;
-}
+        <tr>
+            <td>
+                Select video codecs:
+            </td>
 
-label, input {
-    vertical-align: middle;
-}
+            <td>
+                <div id="videoCodec" style="display: inline-block;">
+                    <label><input type="radio" checked>Default</label>
+                    <label><input type="radio">VP8</label>
+                    <label><input type="radio">VP9</label>
+                    <label><input type="radio">H264</label>
+                    <label><input type="radio">MKV</label>
+                </div>
+            </td>
+        </tr>
 
-label, input[type=checkbox], input[type=radio] {
-    cursor: pointer;
-}
+        <tr class="hidden">
+            <td>
+                Camera resolutions:
+            </td>
 
-label {
-    margin-right: 15px;
-    border: 1px dotted black;
-    padding: 3px 5px;
-    border-radius: 3px;
-}
+            <td>
+                <select id="videoResolutions">
+                    <option value="1920x1080" selected>1920p</option>
+                    <option value="1280x720">720p</option>
+                    <option value="640x480">480p</option>
+                    <option value="640x360">360p</option>
+                    <option value="320x240">240p</option>
+                    <option value="default">Default</option>
+                </select>
+            </td>
+        </tr>
 
-input[type=radio] {
-    vertical-align: baseline;
-    margin-right: 8px;
-}
+        <tr>
+            <td>
+                Select video frame rates:
+            </td>
 
-select {
-    border: 1px solid black;
-    padding: 0;
-    outline:none!important;
-    border: 1px dotted black;
-    padding: 3px 5px;
-    border-radius: 3px;
-}
+            <td>
+                <select id="videoMaxFrameRates">
+                    <option selected>None</option>
+                    <option>30</option>
+                    <option>25</option>
+                    <option>15</option>
+                </select>
+            </td>
+        </tr>
 
-option {
-    background: white;
-    color: black;
-    text-shadow: none;
-    outline:none!important;
-    padding: 2px 5px;
-    border-bottom: 1px solid black;
-}
+        <tr>
+            <td>
+                Select video bitrates:
+            </td>
 
-option:last-child {
-    border-bottom: 0;
-}
+            <td>
+                <select id="bitsPerSecond">
+                    <option value="default" selected>Default bitrates</option>
+                    <!-- <option value="8000000000">1 GB per second</option>
+                    <option value="800000000">100 MB per second</option>
+                    <option value="8000000">1 MB per second</option> -->
+                    <option value="800000">100 KB per second</option>
+                    <option value="8000">1 KB per second</option>
+                    <option value="800">100 Bytes per second</option>
+                </select>
+            </td>
+        </tr>
 
-input[disabled], label[disabled], button[disabled] {
-    cursor: not-allowed!important;
-    color: #bfbfbf!important;
-}
+        <tr>
+            <td>
+                Fix video seeking issues?
+            </td>
 
-#applying-changes {
-    background: yellow;
-    position: fixed;
-    top: 0;
-    left: 0px;
-    right: 0px;
-    width: 100%;
-    text-align: center;
-    color: green;
-    font-weight: bold;
-    display: none;
-    font-size: 24px !important;
-    padding: 0;
-    border-bottom: 1px solid;
-}
+            <td>
+                <input type="checkbox" id="fixVideoSeekingIssues">
+            </td>
+        </tr>
+      <tr>
+        <td><span class="table-titles">Redmine Default Options</span></td> <td></td>
+      </tr>
 
-label:hover {
-    background: yellow;
-}
-
-td {
-    padding: 10px 20px;
-}
-
-article {
-    width: 800px;
-    margin: 0 auto;
-    border: 1px solid black;
-    border-top: 0;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-}
-
-h1 {
-    text-align: center;
-    padding: 20px 0;
-    font-weight: normal;
-    font-size: 250%;
-}
-</style>
-
-<title>RecordRTC Extension</title>
-
-<p id="applying-changes">Applying Changes...</p>
-
-<article>
-<h1>Customize RecordRTC Extension</h1>
-
-<table>
-    <tr>
+      <tr>
         <td>
-            Select a camera device:
+          Project
         </td>
-
         <td>
-            <select id="camera-devices"></select>
+          <select id="projects">
+          </select>
         </td>
-    </tr>
+      </tr>
 
-    <tr>
+      <tr>
         <td>
-            Select a microphone device:
+          Priority
         </td>
-
         <td>
-            <select id="microphone-devices"></select>
+          <select id="priorities">
+          </select>
         </td>
-    </tr>
+      </tr>
 
-    <tr>
+      <tr>
         <td>
-            Select video codecs:
+          Tracker (optional)
         </td>
-
         <td>
-            <div id="videoCodec" style="display: inline-block;">
-                <label><input type="radio" checked>Default</label>
-                <label><input type="radio">VP8</label>
-                <label><input type="radio">VP9</label>
-                <label><input type="radio">H264</label>
-                <label><input type="radio">MKV</label>
-            </div>
+          <select id="trackers">
+          </select>
         </td>
-    </tr>
+      </tr>
 
-    <tr>
+      <tr>
         <td>
-            Camera resolutions:
+          Category (optional)
         </td>
-
         <td>
-            <select id="videoResolutions">
-                <option value="1920x1080" selected>1920p</option>
-                <option value="1280x720">720p</option>
-                <option value="640x480">480p</option>
-                <option value="640x360">360p</option>
-                <option value="320x240">240p</option>
-                <option value="default">Default</option>
-            </select>
+          <select id="categories">
+          </select>
         </td>
-    </tr>
+      </tr>
 
-    <tr>
+      <tr>
         <td>
-            Select video frame rates:
+          Assign to (optional)
         </td>
-
         <td>
-            <select id="videoMaxFrameRates">
-                <option selected>None</option>
-                <option>30</option>
-                <option>25</option>
-                <option>15</option>
-            </select>
+          <select id="assignables">
+          </select>
         </td>
-    </tr>
+      </tr>
 
-    <tr>
-        <td>
-            Select video bitrates:
-        </td>
+    </table>
 
-        <td>
-            <select id="bitsPerSecond">
-                <option value="default" selected>Default bitrates</option>
-                <option value="8000000000">1 GB per second</option>
-                <option value="800000000">100 MB per second</option>
-                <option value="8000000">1 MB per second</option>
-                <option value="800000">100 KB per second</option>
-                <option value="8000">1 KB per second</option>
-                <option value="800">100 Bytes per second</option>
-            </select>
-        </td>
-    </tr>
+    </article>
 
-    <tr>
-        <td>
-            Fix video seeking issues?
-        </td>
+    <script type="text/javascript" src="redmine/projects.js"></script>
+    <script src="RecordRTC/getAllAudioVideoDevices.js"></script>
+    <script src="options.js"></script>
 
-        <td>
-            <input type="checkbox" id="fixVideoSeekingIssues">
-        </td>
-    </tr>
-
-    <tr>
-        <td>
-            YouTube visibility:
-        </td>
-
-        <td>
-            <select id="youtube_privacy">
-                <option value="public" selected>Public</option>
-                <option value="unlisted">Unlisted</option>
-                <option value="private">Private</option>
-                <option value="scheduled" disabled>Scheduled</option>
-            </select>
-        </td>
-    </tr>
-</table>
-
-</article>
-
-<script src="RecordRTC/getAllAudioVideoDevices.js"></script>
-<script src="options.js"></script>
+  </body>
+</html>

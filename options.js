@@ -90,17 +90,17 @@ querySelectorAll('#videoCodec input').forEach(function(input) {
     };
 });
 
-document.getElementById('videoMaxFrameRates').onchange = function() {
-    this.disabled = true;
-
-    showSaving();
-    chrome.storage.sync.set({
-        videoMaxFrameRates: this.value === 'None' ? '' : this.value
-    }, function() {
-        document.getElementById('videoMaxFrameRates').disabled = false;
-        hideSaving();
-    });
-};
+// document.getElementById('videoMaxFrameRates').onchange = function() {
+//     this.disabled = true;
+//
+//     showSaving();
+//     chrome.storage.sync.set({
+//         videoMaxFrameRates: this.value === 'None' ? '' : this.value
+//     }, function() {
+//         document.getElementById('videoMaxFrameRates').disabled = false;
+//         hideSaving();
+//     });
+// };
 
 document.getElementById('bitsPerSecond').onchange = function() {
     this.disabled = true;
@@ -113,27 +113,27 @@ document.getElementById('bitsPerSecond').onchange = function() {
     });
 };
 
-document.getElementById('youtube_privacy').onchange = function() {
-    this.disabled = true;
-    showSaving();
-    chrome.storage.sync.set({
-        youtube_privacy: this.value === 'public' ? '' : this.value
-    }, function() {
-        document.getElementById('youtube_privacy').disabled = false;
-        hideSaving();
-    });
-};
+// document.getElementById('youtube_privacy').onchange = function() {
+//     this.disabled = true;
+//     showSaving();
+//     chrome.storage.sync.set({
+//         youtube_privacy: this.value === 'public' ? '' : this.value
+//     }, function() {
+//         document.getElementById('youtube_privacy').disabled = false;
+//         hideSaving();
+//     });
+// };
 
-document.getElementById('videoResolutions').onchange = function() {
-    this.disabled = true;
-    showSaving();
-    chrome.storage.sync.set({
-        videoResolutions: this.value || '1920x1080'
-    }, function() {
-        document.getElementById('videoResolutions').disabled = false;
-        hideSaving();
-    });
-};
+// document.getElementById('videoResolutions').onchange = function() {
+//     this.disabled = true;
+//     showSaving();
+//     chrome.storage.sync.set({
+//         videoResolutions: this.value || '1920x1080'
+//     }, function() {
+//         document.getElementById('videoResolutions').disabled = false;
+//         hideSaving();
+//     });
+// };
 
 function showSaving() {
     document.getElementById('applying-changes').style.display = 'block';
@@ -219,12 +219,12 @@ document.getElementById('microphone-devices').onchange = function() {
     }, hideSaving);
 };
 
-document.getElementById('camera-devices').onchange = function() {
-    showSaving();
-    chrome.storage.sync.set({
-        camera: this.value
-    }, hideSaving);
-};
+// document.getElementById('camera-devices').onchange = function() {
+//     showSaving();
+//     chrome.storage.sync.set({
+//         camera: this.value
+//     }, hideSaving);
+// };
 
 document.getElementById('fixVideoSeekingIssues').onchange = function() {
     this.disabled = true;

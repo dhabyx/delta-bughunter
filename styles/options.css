@@ -1,0 +1,129 @@
+* {
+  -webkit-user-select: none;
+  -user-select: none;
+  -webkit-user-drag: none;
+  -user-drag: none;
+}
+
+@font-face {
+  font-family: 'Custom_Font';
+  src: local('.SFNSText-Light'),
+       local('.HelveticaNeueDeskInterface-Light'),
+       local('.LucidaGrandeUI'),
+       local('Ubuntu Light'),
+       local('Segoe UI Light'),
+       local('Roboto-Light'),
+       local('DroidSans'),
+       local('Tahoma');
+}
+
+input {
+    -webkit-user-select:initial;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  background-color: white;
+  font-family: Custom_Font!important;
+  font-size: 1em;
+  overflow: hidden;
+}
+
+label, input {
+    vertical-align: middle;
+}
+
+label, input[type=checkbox], input[type=radio] {
+    cursor: pointer;
+}
+
+label {
+    margin-right: 15px;
+    border: 1px dotted black;
+    padding: 3px 5px;
+    border-radius: 3px;
+}
+
+input[type=radio] {
+    vertical-align: baseline;
+    margin-right: 8px;
+}
+
+select {
+    border: 1px solid black;
+    padding: 0;
+    outline:none!important;
+    border: 1px dotted black;
+    padding: 3px 5px;
+    border-radius: 3px;
+}
+
+option {
+    background: white;
+    color: black;
+    text-shadow: none;
+    outline:none!important;
+    padding: 2px 5px;
+    border-bottom: 1px solid black;
+}
+
+option:last-child {
+    border-bottom: 0;
+}
+
+input[disabled], label[disabled], button[disabled] {
+    cursor: not-allowed!important;
+    color: #bfbfbf!important;
+}
+
+#applying-changes {
+    background: yellow;
+    position: fixed;
+    top: 0;
+    left: 0px;
+    right: 0px;
+    width: 100%;
+    text-align: center;
+    color: green;
+    font-weight: bold;
+    display: none;
+    font-size: 24px !important;
+    padding: 0;
+    border-bottom: 1px solid;
+}
+
+label:hover {
+    background: yellow;
+}
+
+td {
+    padding: 10px 20px;
+}
+
+article {
+    width: 800px;
+    margin: 0 auto;
+    border: 1px solid black;
+    border-top: 0;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+h1 {
+    text-align: center;
+    padding: 20px 0;
+    font-weight: normal;
+    font-size: 250%;
+}
+
+.hidden {
+  display: none;
+}
+
+.table-titles {
+  font-weight: bold;
+}
