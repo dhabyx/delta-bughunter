@@ -36,15 +36,15 @@
         });
     }
 
-    if (items['youtube_privacy']) {
-        document.getElementById('youtube_privacy').value = items['youtube_privacy'];
-    } else {
-        chrome.storage.sync.set({
-            youtube_privacy: ''
-        }, function() {
-            document.getElementById('youtube_privacy').value = 'public';
-        });
-    }
+    // if (items['youtube_privacy']) {
+    //     document.getElementById('youtube_privacy').value = items['youtube_privacy'];
+    // } else {
+    //     chrome.storage.sync.set({
+    //         youtube_privacy: ''
+    //     }, function() {
+    //         document.getElementById('youtube_privacy').value = 'public';
+    //     });
+    // }
 
     if (items['videoResolutions']) {
         document.getElementById('videoResolutions').value = items['videoResolutions'];
@@ -90,18 +90,6 @@ querySelectorAll('#videoCodec input').forEach(function(input) {
     };
 });
 
-// document.getElementById('videoMaxFrameRates').onchange = function() {
-//     this.disabled = true;
-//
-//     showSaving();
-//     chrome.storage.sync.set({
-//         videoMaxFrameRates: this.value === 'None' ? '' : this.value
-//     }, function() {
-//         document.getElementById('videoMaxFrameRates').disabled = false;
-//         hideSaving();
-//     });
-// };
-
 document.getElementById('bitsPerSecond').onchange = function() {
     this.disabled = true;
     showSaving();
@@ -112,28 +100,6 @@ document.getElementById('bitsPerSecond').onchange = function() {
         hideSaving();
     });
 };
-
-// document.getElementById('youtube_privacy').onchange = function() {
-//     this.disabled = true;
-//     showSaving();
-//     chrome.storage.sync.set({
-//         youtube_privacy: this.value === 'public' ? '' : this.value
-//     }, function() {
-//         document.getElementById('youtube_privacy').disabled = false;
-//         hideSaving();
-//     });
-// };
-
-// document.getElementById('videoResolutions').onchange = function() {
-//     this.disabled = true;
-//     showSaving();
-//     chrome.storage.sync.set({
-//         videoResolutions: this.value || '1920x1080'
-//     }, function() {
-//         document.getElementById('videoResolutions').disabled = false;
-//         hideSaving();
-//     });
-// };
 
 function showSaving() {
     document.getElementById('applying-changes').style.display = 'block';
@@ -166,23 +132,23 @@ function onGettingDevices(result, stream) {
         });
     });
 
-    chrome.storage.sync.get('camera', function(storage) {
-        result.videoInputDevices.forEach(function(device, idx) {
-            var option = document.createElement('option');
-            option.innerHTML = device.label || device.id;
-            option.value = device.id;
-
-            if (!storage.camera && idx === 0) {
-                option.selected = true;
-            }
-
-            if (storage.camera && storage.camera === device.id) {
-                option.selected = true;
-            }
-
-            document.getElementById('camera-devices').appendChild(option);
-        });
-    });
+    // chrome.storage.sync.get('camera', function(storage) {
+    //     result.videoInputDevices.forEach(function(device, idx) {
+    //         var option = document.createElement('option');
+    //         option.innerHTML = device.label || device.id;
+    //         option.value = device.id;
+    //
+    //         if (!storage.camera && idx === 0) {
+    //             option.selected = true;
+    //         }
+    //
+    //         if (storage.camera && storage.camera === device.id) {
+    //             option.selected = true;
+    //         }
+    //
+    //         document.getElementById('camera-devices').appendChild(option);
+    //     });
+    // });
 
     stream && stream.getTracks().forEach(function(track) {
         track.stop();
@@ -218,13 +184,6 @@ document.getElementById('microphone-devices').onchange = function() {
         microphone: this.value
     }, hideSaving);
 };
-
-// document.getElementById('camera-devices').onchange = function() {
-//     showSaving();
-//     chrome.storage.sync.set({
-//         camera: this.value
-//     }, hideSaving);
-// };
 
 document.getElementById('fixVideoSeekingIssues').onchange = function() {
     this.disabled = true;
